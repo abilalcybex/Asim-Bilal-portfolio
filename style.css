@@ -99,3 +99,15 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
+.whatsapp-button {
+    display: inline-block;
+    color: #25D366;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.whatsapp-button i {
+    margin-right: 8px;
+}
+
