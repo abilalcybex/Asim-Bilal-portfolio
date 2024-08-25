@@ -6,6 +6,9 @@ body {
     padding: 0;
     line-height: 1.6;
     background-color: #eef2f7;
+    min-height: 100vh; /* Ensure the body takes up full viewport height */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header Styling */
@@ -77,6 +80,10 @@ nav ul li a:hover {
 }
 
 /* Section and Project Styling */
+main {
+    flex: 1; /* Allow main content to take up the remaining space */
+}
+
 section {
     padding: 40px 20px;
     padding-bottom: 60px; /* Ensure content doesn't overlap with footer */
@@ -119,20 +126,14 @@ section {
     text-decoration: underline;
 }
 
-section {
-    padding: 40px 20px;
-    padding-bottom: 60px;
-}
-
 /* Footer Styling */
 footer {
     text-align: center;
     padding: 15px;
     background-color: #1c1f26;
     color: white;
-    position: relative;
+    position: static; /* Let the footer flow naturally */
     width: 100%;
-    bottom: 0;
     margin-top: 40px;
 }
 
