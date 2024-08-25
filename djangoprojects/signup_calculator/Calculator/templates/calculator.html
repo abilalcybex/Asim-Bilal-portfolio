@@ -1,0 +1,155 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        .calculator {
+            background-color: #333;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 300px;
+        }
+        .calculator h2 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .calculator .display {
+            background-color: #444;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 24px;
+            text-align: right;
+        }
+        .calculator .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .calculator button {
+            background-color: #555;
+            color: #fff;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .calculator button:hover {
+            background-color: #666;
+        }
+        .calculator button.operation {
+            background-color: #ff9500;
+        }
+        .calculator button.operation:hover {
+            background-color: #e08900;
+        }
+        .calculator button.equal {
+            grid-column: span 2;
+            background-color: #ff9500;
+        }
+        .calculator button.equal:hover {
+            background-color: #e08900;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Calculator</h2>
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button class="operation" onclick="chooseOperation('divide')">÷</button>
+
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button class="operation" onclick="chooseOperation('multiply')">×</button>
+
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button class="operation" onclick="chooseOperation('subtract')">−</button>
+
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="clearDisplay()">C</button>
+            <button class="operation" onclick="chooseOperation('add')">+</button>
+            <button class="equal" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let displayValue = '';
+        let operation = null;
+        let num1 = null;
+
+        function appendNumber(number) {
+            displayValue += number;
+            updateDisplay();
+        }
+
+        function chooseOperation(op) {
+            if (displayValue === '') return;
+            if (num1 !== null) {
+                calculate();
+            }
+            num1 = parseFloat(displayValue);
+            operation = op;
+            displayValue = '';
+        }
+
+        function clearDisplay() {
+            displayValue = '';
+            num1 = null;
+            operation = null;
+            updateDisplay();
+        }
+
+        function calculate() {
+            if (operation === null || displayValue === '') return;
+            let num2 = parseFloat(displayValue);
+            let result = null;
+            switch (operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    result = num1 / num2;
+                    break;
+            }
+            displayValue = result;
+            operation = null;
+            num1 = null;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            const display = document.getElementById('display');
+            display.innerText = displayValue || '0';
+        }
+    </script>
+</body>
+</html>

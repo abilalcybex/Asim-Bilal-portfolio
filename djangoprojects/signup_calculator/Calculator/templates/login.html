@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Calculator/styles.css' %}">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f9fb;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 380px;
+        }
+        .login-container h2 {
+            text-align: center;
+            color: #232f3e;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .login-container form input[type="text"],
+        .login-container form input[type="password"],
+        .login-container form button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #d5d9d9;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .login-container form button {
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        .login-container form button:hover {
+            background-color: #e68a00;
+        }
+        .login-container ul {
+            list-style-type: none;
+            padding: 0;
+            color: #d93025;
+            margin-top: 10px;
+        }
+        .login-container ul li {
+            font-size: 14px;
+        }
+        .login-container .messages {
+            color: #232f3e;
+            background-color: #f3f3f3;
+            border: 1px solid #d5d9d9;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        {% if messages %}
+            <div class="messages">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+        
+        {% if form.non_field_errors %}
+        <ul>
+            {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

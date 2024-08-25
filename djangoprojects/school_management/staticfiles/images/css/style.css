@@ -1,0 +1,126 @@
+/* Ensure there's no gap at the top and sides */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Adjust body padding to account for fixed navbar */
+body {
+    padding-top: 0px; /* Adjust to match the height of the navbar */
+    background-color: #f8f9fa;
+}
+
+/* Style for the page title */
+.page-title {
+    font-size: 56px; /* Increase the font size */
+    font-weight: bolder; /* Make the text bold */
+    text-align: center; /* Center the title */
+    margin-top: 0px; /* Remove space above the title */
+}
+
+/* Navbar styles */
+.navbar-custom {
+    background-color: #000000; /* Black background */
+    border-bottom: 2px solid #C0C0C0; /* Silver border at the bottom */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 80px; /* Adjust the height for a broader navbar */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    padding: 0 15px;
+}
+
+/* Style for the brand name */
+.navbar-custom .navbar-brand {
+    font-size: 36px; /* Increase the font size for brand */
+    font-weight: bold; /* Make the text bold */
+    color: #C0C0C0; /* Silver text color */
+    margin-right: auto; /* Push the brand to the left */
+}
+
+/* Style for the navigation links */
+.navbar-custom .navbar-nav {
+    margin-left: auto; /* Push navigation items to the right */
+}
+
+/* Style for the navigation links */
+.navbar-custom .navbar-nav .nav-link {
+    color: #C0C0C0; /* Silver text color */
+    font-size: 16px; /* Adjust font size for better alignment */
+    margin-left: 20px;
+}
+
+/* Hover effect for nav links */
+.navbar-custom .nav-link:hover {
+    color: #d0cbcbcf; /* White text color on hover */
+}
+
+/* Adjust margin for the content to account for the fixed navbar */
+.content {
+    margin-top: 0; /* Ensure content doesn't overlap with the navbar */
+}
+
+/* Custom container styles for the jumbotron */
+.custom-container {
+    max-width: 200px; /* Set your preferred maximum width */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add padding if needed */
+}
+
+.jumbotron {
+    background-image: url('{% static "images/R.jpeg" %}');
+    background-size: contain; /* Or use 'contain' depending on your needs */
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 50vh; /* Adjust the height as needed */
+}
+
+.custom-container {
+    max-width: 800px; /* Adjust to fit your layout */
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px; /* Optional: Add padding inside */
+}
+
+/* Style for the jumbotron with background image */
+.jumbotron {
+    background-image: url('/static/images/R.jpeg');
+    background-size: cover; /* Adjust to cover the container */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating */
+    height: 60vh; /* Full viewport height */
+    color: black; /* Text color */
+    display: grid; /* Use flexbox for centering content */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding-top: 50px;
+}
+
+/* Style for the container within the jumbotron */
+.custom-container {
+    width: 80%; /* Adjust as needed */
+    max-width: 800px; /* Set a maximum width */
+    text-align: center; /* Center the text */
+    padding: 60px; /* Optional padding */
+    border-radius: 10px; /* Optional: add rounded corners */
+    margin-top: 40px;
+}
+
+/* Optional: Adjust jumbotron text color */
+.jumbotron h1, .jumbotron p {
+    color: black; /* Ensure text color is visible */
+}
+
+.footer {
+    position: relative; /* Ensure the footer is the reference point for absolute positioning */
+}
+
+.contact-button {
+    position: absolute; /* Absolute positioning to move the button to the bottom-right */
+    bottom: 30px; /* Adjust as needed to align with the bottom of the footer */
+    right: 40px; /* Adjust as needed to align with the right side of the footer */
+}

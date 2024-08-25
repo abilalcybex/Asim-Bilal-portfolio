@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Offered Courses{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+<div class="container mt-5">
+    <h2 class="text-center">Our Offered Courses</h2>
+    <p class="lead text-center">We offer a wide range of courses designed to help you achieve your career goals.</p>
+    
+    <div id="courseCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <img src="{% static 'images/courses/pythoncourse.jpeg' %}" class="card-img-top img-fluid" alt="Python Full Stack Development">
+                            <div class="card-body">
+                                <h5 class="card-title">Python Full Stack Development with DataScience, Machine Learning & AI</h5>
+                                <a href="#course1" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <img src="{% static 'images/courses/digitalmarketingcourse.jpeg' %}" class="card-img-top img-fluid" alt="Digital Marketing">
+                            <div class="card-body">
+                                <h5 class="card-title">Digital Marketing with Ads, Promotions, Sponsored and Listings</h5>
+                                <a href="#course2" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <img src="{% static 'images/courses/ecommercecourse.jpeg' %}" class="card-img-top img-fluid" alt="E-Commerce">
+                            <div class="card-body">
+                                <h5 class="card-title">E-Commerce Complete Course from A-Z</h5>
+                                <a href="#course3" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional carousel items can go here -->
+
+        </div>
+        <a class="carousel-control-prev" href="#courseCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#courseCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

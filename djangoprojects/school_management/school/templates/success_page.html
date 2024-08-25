@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+    <!-- Login Form -->
+    {% if not user.is_authenticated %}
+    <h1 class="text-center mb-4">Login</h1>
+    <form method="POST" action="{% url 'contact' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary mt-3">Send Message</button>
+    </form>
+    
+    <!-- Display Error Messages -->
+    {% if form.errors %}
+    <div class="alert alert-danger mt-3">
+        <ul>
+            {% for field, errors in form.errors.items %}
+            <li>{{ errors }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% else %}
+    <!-- Success Message -->
+    <h1 class="text-center">Login Successful</h1>
+    <p class="text-center">Welcome! You have successfully logged in.</p>
+    <form method="POST" action="{% url 'succes_page' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary mt-3">Send Message</button>
+    </form>
+        
+    {% endif %}
+    
+{% endblock %}

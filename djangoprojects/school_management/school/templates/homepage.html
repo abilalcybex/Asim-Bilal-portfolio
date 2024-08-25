@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Cybex School{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+
+
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container custom-container text-center">
+        <h1 class="display-4">Welcome to Cybex School of Information & Technology</h1>
+        <p class="lead">Empowering students with quality education.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'offered_courses' %}" role="button">View Offered Courses</a>
+    </div>
+</div>
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{% static 'images/1.jpg' %}" class="card-img-top" alt="Institute Image 1">
+                <div class="card-body">
+                    <h5 class="card-title">State-of-the-Technology Facilities</h5>
+                    <p class="card-text">Cybex is equipped with modern facilities to support quality education.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{% static 'images/2.png' %}" class="card-img-top" alt="Institute Image 2">
+                <div class="card-body">
+                    <h5 class="card-title">Experienced Faculty</h5>
+                    <p class="card-text">Learn from our highly certified and experienced faculty members.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{% static 'images/3.jpeg' %}" class="card-img-top" alt="Institute Image 3">
+                <div class="card-body">
+                    <h5 class="card-title">Diverse Courses</h5>
+                    <p class="card-text">We offer a wide range of courses to cater to different interests and career goals.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer should be outside the block content -->
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <span class="text-muted">© 2024 Cybex School of Information & Technology</span>
+                <br>
+                <span class="text-muted">1234 Education Lane, Knowledge City, IN 56789</span>
+                <br>
+                <span class="text-highlight">Thank you for visiting</span>
+            </div>
+            <div class="col-md-6 text-md-right">
+                <a href="{% url 'contact' %}" class="btn btn-primary contact-button">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+{% endblock %}

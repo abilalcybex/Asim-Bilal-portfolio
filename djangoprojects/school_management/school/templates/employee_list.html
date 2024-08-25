@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Employee List{% endblock %}
+
+{% block content %}
+<h1>Employee List</h1>
+<ul>
+    {% for employee in employees %}
+    <li>{{ employee.first_name }} {{ employee.last_name }} - {{ employee.position }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_employee' %}">Add New Employee</a>
+{% endblock %}

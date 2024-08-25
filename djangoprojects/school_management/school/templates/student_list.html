@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Student List{% endblock %}
+
+{% block content %}
+<h1>Student List</h1>
+<form method="GET" action="{% url 'student_list' %}">
+    <input type="text" name="q" placeholder="Search Students">
+    <button type="submit">Search</button>
+</form>
+<ul>
+    {% for student in students %}
+    <li>{{ student.first_name }} {{ student.last_name }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_student' %}">Add New Student</a>
+{% endblock %}

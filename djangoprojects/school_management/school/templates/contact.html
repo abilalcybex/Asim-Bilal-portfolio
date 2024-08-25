@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Contact Cybex School of Information & Technology</h1>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Get in Touch</h2>
+            <p>If you have any questions, concerns, or would like to learn more about our programs, please don't hesitate to contact us. Our team is here to help you with all your inquiries.</p>
+            <p><strong>Address:</strong> Chenab Market, Susan Road, Faisalabad</p>
+            <p><strong>Phone:</strong> +92 (300) 965-3606</p>
+            <p><strong>Email:</strong> info@cybexschool.edu</p>
+            <p><strong>Office Hours:</strong> Monday - Thursday, 9:00 AM - 5:00 PM</p>
+        </div>
+        
+        <div class="col-md-6">
+            <h2>Contact Form</h2>
+            <form id="contact-form" method="POST" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Send Message</button>   
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2>Our Location</h2>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m19!1m8!1m3!1d13619.058567098838!2d73.117431!3d31.42061!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x392267df5714569f%3A0x41f6738435ff032d!2sCYBEX%20-%20School%20of%20IT%20Professionals%20(Pvt)%20Limited%2C%20P-23%20Susan%20Road%2C%20near%20UBL%20Bank%20Chanab%20Market%2C%20Block%20Z%20Madina%20Town%2C%20Faisalabad%2C%20Punjab%2038000%2C%20Pakistan!3m2!1d31.4206103!2d73.1174305!5e0!3m2!1sen!2sus!4v1724090985157!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

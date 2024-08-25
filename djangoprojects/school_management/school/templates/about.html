@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}About Cybex School{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">About Cybex School of Information & Technology</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{% static 'images/6.jpeg' %}" alt="Cybex School Building" class="img-fluid mb-4">
+        </div>
+        <div class="col-md-6">
+            <p>Cybex School of Information & Technology is dedicated to empowering students with the knowledge and skills they need to succeed in the ever-evolving field of technology. Established with a vision to provide quality education, Cybex offers a wide range of courses designed to meet the needs of the modern workforce.</p>
+            <p>Our state-of-the-art facilities, experienced faculty, and diverse course offerings make Cybex a top choice for students who are passionate about technology and innovation. Whether you're interested in software development, cybersecurity, data science, or any other IT-related field, Cybex has something to offer you.</p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2 class="mb-4">Our Mission</h2>
+            <p>Our mission is to provide students with a comprehensive education that combines theoretical knowledge with practical skills. We strive to create an environment where students can thrive, explore their interests, and achieve their full potential. At Cybex, we believe in nurturing the next generation of technology leaders who will shape the future of the industry.</p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h3 class="mb-4">Why Choose Us?</h3>
+            <ul>
+                <li>Innovative curriculum tailored to industry needs.</li>
+                <li>Experienced and certified faculty.</li>
+                <li>Hands-on learning experiences.</li>
+                <li>State-of-the-art facilities and resources.</li>
+                <li>Strong industry connections and internship opportunities.</li>
+                <li>Commitment to student success and career development.</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'images/14.jpeg' %}" alt="Technology" class="img-fluid mb-4">
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h2 class="mb-4">Our Vision</h2>
+            <p>At Cybex, our vision is to be a leader in technology education, recognized for our innovative approach to teaching and learning. We aim to inspire and equip our students to become the innovators, problem-solvers, and leaders of tomorrow's technology-driven world.</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
