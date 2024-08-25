@@ -1,16 +1,18 @@
+/* General Styling */
 body {
-    font-family: 'Arial', sans-serif;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
+    color: #444;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #eef2f7;
 }
 
+/* Header Styling */
 header {
     text-align: center;
     padding: 50px 0;
-    background-color: #282c34;
+    background: linear-gradient(135deg, #1c1f26 0%, #006bb7 100%);
     color: white;
 }
 
@@ -28,18 +30,26 @@ header {
     font-size: 1.2rem;
 }
 
+/* Button Styling */
 .btn {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 20px;
     color: white;
-    background-color: #007acc;
+    background-color: #006bb7;
     border-radius: 5px;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
+.btn:hover {
+    background-color: #005fa3;
+    cursor: pointer;
+}
+
+/* Navigation Styling */
 nav {
-    background-color: #007acc;
+    background-color: #006bb7;
     color: white;
     padding: 15px;
     text-align: center;
@@ -59,16 +69,24 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    transition: text-decoration 0.3s ease;
 }
 
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Section and Project Styling */
 section {
     padding: 40px 20px;
+    padding-bottom: 60px; /* Ensure content doesn't overlap with footer */
 }
 
 .projects {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 20px; /* Adds space between the project cards */
 }
 
 .project {
@@ -79,6 +97,7 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project img {
@@ -90,16 +109,29 @@ section {
     margin: 15px 0 10px;
 }
 
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.project a:hover {
+    color: #007acc;
+    text-decoration: underline;
+}
+
+/* Footer Styling */
 footer {
     text-align: center;
     padding: 15px;
-    background-color: #282c34;
+    background-color: #1c1f26;
     color: white;
     position: fixed;
     width: 100%;
     bottom: 0;
+    z-index: 1000;
 }
 
+/* Whatsapp Button Styling */
 .whatsapp-button {
     display: inline-block;
     color: #25D366;
@@ -111,3 +143,64 @@ footer {
     margin-right: 8px;
 }
 
+.whatsapp-button:hover {
+    color: #128C7E;
+}
+
+/* Phone Button Styling */
+.phone-button {
+    display: inline-block;
+    color: #444;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.phone-button i {
+    margin-right: 8px;
+}
+
+.phone-button:hover {
+    color: #000;
+}
+
+/* Location Icon Styling */
+.location-button {
+    display: inline-block;
+    color: #444;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.location-button i {
+    margin-right: 8px;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .project {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    footer {
+        position: static;
+    }
+}
