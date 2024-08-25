@@ -1,4 +1,4 @@
-/* General Styling */
+
 body {
     font-family: 'Roboto', sans-serif;
     color: #444;
@@ -6,12 +6,12 @@ body {
     padding: 0;
     line-height: 1.6;
     background-color: #eef2f7;
-    min-height: 100vh; /* Ensure the body takes up full viewport height */
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
 }
 
-/* Header Styling */
+
 header {
     text-align: center;
     padding: 50px 0;
@@ -33,7 +33,7 @@ header {
     font-size: 1.2rem;
 }
 
-/* Button Styling */
+
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -50,7 +50,7 @@ header {
     cursor: pointer;
 }
 
-/* Navigation Styling */
+
 nav {
     background-color: #006bb7;
     color: white;
@@ -79,21 +79,21 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Section and Project Styling */
+
 main {
-    flex: 1; /* Allow main content to take up the remaining space */
+    flex: 1; 
 }
 
 section {
     padding: 40px 20px;
-    padding-bottom: 60px; /* Ensure content doesn't overlap with footer */
+    padding-bottom: 60px; 
 }
 
 .projects {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 20px; /* Adds space between the project cards */
+    gap: 20px; 
 }
 
 .project {
@@ -102,7 +102,7 @@ section {
     margin: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 200px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -132,7 +132,7 @@ footer {
     padding: 15px;
     background-color: #1c1f26;
     color: white;
-    position: static; /* Let the footer flow naturally */
+    position: static; 
     width: 100%;
     margin-top: 40px;
 }
@@ -169,24 +169,47 @@ footer {
     color: #000;
 }
 
-/* Location Icon Styling */
+
 .location-button {
-    display: inline-block;
     color: #444;
-    text-decoration: none;
-    font-size: 1.5em;
 }
 
 .location-button i {
     margin-right: 8px;
 }
 
-/* Smooth Scroll */
+
 html {
     scroll-behavior: smooth;
 }
 
-/* Responsive Design */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #eee;
+}
+
+.dark-mode header {
+    background: linear-gradient(135deg, #222 0%, #444 100%);
+}
+
+.dark-mode .project {
+    background: #444;
+    color: #eee;
+    box-shadow: none;
+}
+
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5rem;
@@ -210,3 +233,5 @@ html {
         position: static;
     }
 }
+
+
