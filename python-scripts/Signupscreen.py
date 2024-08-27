@@ -46,11 +46,10 @@ def submit_form():
     username = entry_username.get()
     password = entry_password.get()
     
-    # Database connection and checking login credentials
     try:
         conn = pyodbc.connect('Driver={SQL Server};'
-                              'Server=DESKTOP-FKSHIM8\SQLEXPRESS01;'  # Replace YourServerName with your SQL Server name
-                              'Database=Cybex;'  # Replace YourDatabaseName with your database name
+                              'Server=DESKTOP-FKSHIM8\SQLEXPRESS01;'  
+                              'Database=Cybex;'
                               'Trusted_Connection=yes;')
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM signupscreen_login WHERE username=? AND password=?", (username, password))
@@ -58,7 +57,7 @@ def submit_form():
         conn.close()
         if row:
             print("Login successful. Username:", username)
-            open_calculator()  # Call the function to open the calculator popup window
+            open_calculator()
         else:
             print("Incorrect username or password.")
     except Exception as e:
@@ -68,11 +67,10 @@ def signup_form():
     username = entry_signup_username.get()
     password = entry_signup_password.get()
         
-    # Database connection and saving signup data
     try:
         conn = pyodbc.connect('Driver={SQL Server};'
-                              'Server=DESKTOP-FKSHIM8\SQLEXPRESS01;'  # Replace YourServerName with your SQL Server name
-                              'Database=Cybex;'  # Replace YourDatabaseName with your database name
+                              'Server=DESKTOP-FKSHIM8\SQLEXPRESS01;'
+                              'Database=Cybex;'
                               'Trusted_Connection=yes;')
         cursor = conn.cursor()
         cursor.execute("INSERT INTO signupscreen_login (username, password) VALUES (?, ?)", (username, password))
@@ -82,14 +80,10 @@ def signup_form():
     except Exception as e:
         print("Error:", e)
 
-# Create the main window
 root = tk.Tk()
 root.title("Login and Signup")
+root.geometry("600x500")  
 
-# Set the size of the window
-root.geometry("600x500")  # width x height
-
-# Login widgets
 label_username = tk.Label(root, text="Username:")
 label_username.grid(row=0, column=0, padx=50, pady=10)
 entry_username = tk.Entry(root)
@@ -103,7 +97,6 @@ entry_password.grid(row=1, column=1, padx=50, pady=10)
 button_login = tk.Button(root, text="Login", command=submit_form)
 button_login.grid(row=2, column=0, columnspan=2, padx=100 , pady=20)
 
-# Signup widgets
 label_signup_username = tk.Label(root, text="Username:")
 label_signup_username.grid(row=3, column=0, padx=50, pady=10)
 entry_signup_username = tk.Entry(root)
@@ -117,5 +110,4 @@ entry_signup_password.grid(row=4, column=1, padx=50, pady=10)
 button_signup = tk.Button(root, text="Signup", command=signup_form)
 button_signup.grid(row=7, column=0, columnspan=2, padx=100 , pady=20)
 
-# Start the GUI event loop
 root.mainloop()

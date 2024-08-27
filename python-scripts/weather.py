@@ -16,7 +16,7 @@ def get_weather(api_key, city):
         return None, None, None, None
 
 def main():
-    api_key = "a2d761fc89e2ba58e4b1182023ea629d"  # Replace "YOUR_API_KEY" with your actual API key from OpenWeatherMap
+    api_key = "a2d761fc89e2ba58e4b1182023ea629d" 
     cities = ["Barcelona", "New York", "Tokyo", "Paris", "Sydney", "Faisalabad", "Skardu", "Baltimore"]
     
     print("Weather Report for Different Cities:")

@@ -2,14 +2,11 @@ import socket
 import uuid
 
 def get_ip_address():
-    # Get the hostname
     hostname = socket.gethostname()
-    # Get the IP address of the host
     ip_address = socket.gethostbyname(hostname)
     return ip_address
 
 def get_mac_address():
-    # Get the MAC address using the uuid library
     mac_address = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) for elements in range(0,2*6,2)][::-1])
     return mac_address
 

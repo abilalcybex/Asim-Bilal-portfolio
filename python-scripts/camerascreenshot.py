@@ -19,7 +19,7 @@ def open_camera():
 
 def take_screenshot():
     screenshot = ImageGrab.grab()
-    screenshot.save('screenshot.png')  # Save the screenshot as 'screenshot.png'
+    screenshot.save('screenshot.png')  
 
 if __name__ == '__main__':
     open_camera()

@@ -111,7 +111,6 @@ class Ui_MainWindow(object):
         self.lineEdit.clear()
         self.lineEdit_2.clear()
         self.lineEdit_3.clear()
-         # Reset uploaded picture
         self.label_5.setPixmap(QtGui.QPixmap("C:/Users/Dell/Downloads/genericphoto.png"))
 
 
@@ -119,8 +118,6 @@ class Ui_MainWindow(object):
         first_name = self.lineEdit.text()
         last_name = self.lineEdit_2.text()
         email = self.lineEdit_3.text()
-
-        # Connect to SQL Server and insert data
         server = 'DESKTOP-FKSHIM8\SQLEXPRESS01'
         database = 'Cybex'
         conn = pyodbc.connect('DRIVER={SQL Server};SERVER='+server+';DATABASE='+database+';Trusted_Connection=yes;')
@@ -136,7 +133,6 @@ class Ui_MainWindow(object):
         msg.setText("Data sent successfully.")
         msg.setWindowTitle("Success")
         msg.exec_()
-#Reset form to original after clicking OK.
         self.reset_form()
 
 if __name__ == "__main__":
